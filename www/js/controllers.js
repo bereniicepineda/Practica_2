@@ -12,6 +12,19 @@ angular.module('starter.controllers', [])
     
     $scope.guardar = function(persona)
 {
+    
+ 
+    $cordovaSQLite.execute(db, 'INSERT INTO agenda (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
+        .then(function(result) {
+            $scope.statusMessage = "Registro guardado!";
+        }, function(error) {
+            $scope.statusMessage = "Error al guardar: " + error.message;
+        })
+    
+    
+    
+    
+    
     console.log("Nombre: " +persona.nombre);
      console.log("Apellido: " +persona.apellido);
       console.log("Telefono: " +persona.telefono);
