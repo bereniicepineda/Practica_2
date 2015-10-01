@@ -2,8 +2,11 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
+        <img ng-src="http://static.ellahoy.es/ellahoy/fotogallery/625X0/147629/vestido-pin-up-negro-vuelo-y-guantes.jpg">
+        <h2>{{nombre}}  {{apellido}}</h2>
+        <p>{{email}}</p>
+        <p>{{telefono}}</p>
+        
         <p>{{chat.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
