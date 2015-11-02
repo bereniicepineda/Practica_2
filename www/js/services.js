@@ -38,13 +38,30 @@ angular.module('starter.services', [])
     remove: function(chat) {
       chats.splice(chats.indexOf(chat), 1);
     },
+
+
+
     get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
+
+        chats=[];
+    $cordovaSQLite.execute(db, 'SELECT * FROM agenda where id= ?' , [chatid])
+            .then(function(result){
+
+            if(result.rows.lenght >0){
+
+
+                chats.push({"id":result.rows.item(0).id,
+                        "nombre":result.rows.item(0).nombre,
+                        "apellido":result.rows.item(0).apellido,
+                        "telefono":result.rows.item(0).telefono,
+                        "email":result.rows.item(0).emai});
+            }return chats;
+    },
+    function(error){
+        statusMessage = "Error" + error.message;
+    });
     }
-  };
-});
+
+
+  }
+
