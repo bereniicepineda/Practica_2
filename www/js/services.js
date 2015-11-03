@@ -44,7 +44,7 @@ angular.module('starter.services', [])
     get: function(chatId) {
 
         chats=[];
-    $cordovaSQLite.execute(db, 'SELECT * FROM agenda where id= ?' , [chatid])
+    $cordovaSQLite.execute(db, 'SELECT * FROM agenda where id= ?' , [chatId])
             .then(function(result){
 
             if(result.rows.lenght >0){
@@ -55,13 +55,15 @@ angular.module('starter.services', [])
                         "apellido":result.rows.item(0).apellido,
                         "telefono":result.rows.item(0).telefono,
                         "email":result.rows.item(0).emai});
-            }return chats;
+            }
     },
     function(error){
         statusMessage = "Error" + error.message;
     });
+
+return chats;
+
     }
 
 
   }
-

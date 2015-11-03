@@ -22,16 +22,21 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-    
-    
-    
+
+    if(window.cordova)
+    {
+
      db= $cordovaSQlite.openDB("practica2_agenda.db");
+    }
+    else {
+        db= window.openDatabase("practica2_agenda.db" , "1", "Aplicacion" , -1);
+    }
     $cordovaSQlite.execute(db, 'CREATE TABLE IF NO EXIST agenda(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
-  
+
   });
-  
-  
-  
+
+
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
