@@ -1,6 +1,8 @@
+s (6 sloc)  148 Bytes
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
 node_modules/
 platforms/
 plugins/
+.DS_STORE
