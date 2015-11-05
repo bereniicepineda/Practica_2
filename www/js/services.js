@@ -35,9 +35,10 @@ angular.module('starter.services', [])
       return chats;
     },
     remove: function(chat) {
-      $cordovaSQLite.execute(db, 'DELETE FROM agenda where id = ?',[chat.Id])
+      $cordovaSQLite.execute(db, 'DELETE FROM agenda where id = ?',[chat.id])
       .then(function(result){
           statusMessage = "Borrado";
+          chats.splice(chats.indexOf(chat), 1);
       },
       function(error){
           statusMessage = "Error: " + error.message;
