@@ -84,8 +84,9 @@ angular.module('starter.controllers', [])
             $scope.statusMessage = "Error al guardar: " + error.message;
         })
 
-        console.log("NOMBRE: "+persona.nombre);
-        console.log("ID: "+persona.id);
+
+       // console.log("NOMBRE: "+persona.nombre);
+        //console.log("ID: "+persona.id);
     }
 
 
